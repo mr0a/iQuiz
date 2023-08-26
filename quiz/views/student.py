@@ -1,6 +1,7 @@
 import datetime
 import json
 from django.utils import timezone
+import markdown2
 
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
@@ -204,7 +205,7 @@ def prompt(request):
         return HttpResponseNotFound("Either no prompt available or you have answered already!")
     
     return JsonResponse({
-        'question': prompt.question,
+        'question': markdown2.markdown(prompt.question),
         'id': prompt.id
     })
 

@@ -197,7 +197,7 @@ function getPrompt(questionNumber) {
 		data: {questionNumber: questionNumber},
 		success: (response) => {
 			$('#PromptModal input[name=id]').val(response.id);
-			$('#PromptModal label[for=response]').text(response.question);
+			$('#PromptModal label[for=response]').html(response.question);
 			$('#PromptModal').modal('show');
 			document.addEventListener('keydown', event_recorder);
 			document.addEventListener('keyup', event_recorder);
